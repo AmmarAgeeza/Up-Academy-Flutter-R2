@@ -1,0 +1,15 @@
+1.Widget Life Cycle.
+2.setState Problems.
+    2.1 Passing Data
+    2.2 rebuild
+    2.3 complex code in one file [Logic]
+3.State[Data] Management Approaches.
+    3.1 setState + InheritedWidget
+    3.2 Provider
+    3.3 Bloc [Cubit] <=====
+    3.4 Riverbod
+
+    //login [State]
+    1.loading
+    2.sucess
+    3.failed

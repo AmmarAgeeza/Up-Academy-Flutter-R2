@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:up_flutter_round_two/state_management/counter_cubit/counter_cubit.dart';
 
-import 'async_programming/future_topic.dart';
+import 'state_management/bloc_observer.dart';
+import 'state_management/set_state_problems/main_screen.dart';
 
 void main() {
+  Bloc.observer=MyBlocObserver();
   runApp(const RootWidget());
 }
 
@@ -10,11 +14,20 @@ class RootWidget extends StatelessWidget {
   const RootWidget({super.key});
   @override
   Widget build(BuildContext context) {
-    return  const MaterialApp(
-      title: 'Up Flutter Round Two',
-      debugShowCheckedModeBanner: false,
-     
-      home: FutureTopic(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => CounterCubitB(),
+        ),
+        BlocProvider(
+          create: (context) => CounterCubit()),
+        
+      ],
+      child: const MaterialApp(
+        title: 'Up Flutter Round Two',
+        debugShowCheckedModeBanner: false,
+        home: MainScreen(),
+      ),
     );
   }
 }
