@@ -1,0 +1,16 @@
+CRUD Operations
+1. Create
+2. Read
+3. Update
+4. Delete
+
+
+
+Steps
+1.Create DB
+2.Create Table
+3.CRUD Operations
+    3.1 Insert
+    3.2 Get
+    3.3 Update 
+    3.4 Delete
