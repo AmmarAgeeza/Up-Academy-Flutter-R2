@@ -98,6 +98,7 @@ UPDATE Task set date = ? where id = ?
   }) async {
     emit(DbDeleteLoading());
     try {
+      // if(is Exist)
       await db.rawDelete('DELETE FROM Task where id = ? ', [id]);
       emit(DbDeleteSucess());
     } catch (e) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:up_flutter_round_two/state_management/counter_cubit/counter_cubit.dart';
 
-import 'sqflite_session/db_session.dart';
+import 'api_session/screens/posts_screen.dart';
 import 'state_management/bloc_observer.dart';
 
 void main() {
@@ -25,7 +25,7 @@ class RootWidget extends StatelessWidget {
       child: const MaterialApp(
         title: 'Up Flutter Round Two',
         debugShowCheckedModeBanner: false,
-        home: DBSession(),
+        home: PostsScreen(),
       ),
     );
   }
