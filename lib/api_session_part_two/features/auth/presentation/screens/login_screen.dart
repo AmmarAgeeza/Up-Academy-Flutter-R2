@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/services/service_locator.dart';
 import '../cubit/auth_cubit.dart';
 import '../cubit/auth_state.dart';
 
@@ -12,7 +13,7 @@ class LoginScreen extends StatelessWidget {
     //1.  BlocProvider.of<AuthCubit>(context).login();
     //  context.read<AuthCubit>().login();
     return BlocProvider(
-      create: (context) => AuthCubit()..login(),
+      create: (context) => getIt<AuthCubit>()..login(),
       child: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {},
         builder: (context, state) {
@@ -23,12 +24,12 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      BlocProvider.of<AuthCubit>(context).logout();
+                      BlocProvider.of<AuthCubit>(context).login();
                     },
-                    child: const Text('Lougout'),
+                    child: const Text('Login'),
                   ),
                   state is ChangePasswordLoadingState
-                      ? Text('Loading')
+                      ? const Text('Loading')
                       : ElevatedButton(
                           onPressed: () {
                             BlocProvider.of<AuthCubit>(context)
@@ -37,11 +38,10 @@ class LoginScreen extends StatelessWidget {
                           child: const Text('Change Password'),
                         ),
                   state is DeleteLoadingState
-                      ? Text('Loading')
+                      ? const Text('Loading')
                       : ElevatedButton(
                           onPressed: () {
-                            BlocProvider.of<AuthCubit>(context)
-                                .deleteChef();
+                            BlocProvider.of<AuthCubit>(context).deleteChef();
                           },
                           child: const Text('Delete Chef'),
                         ),

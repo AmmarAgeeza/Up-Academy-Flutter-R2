@@ -38,5 +38,27 @@ class RootWidget extends StatelessWidget {
 }
 
 //{{baseURL}}/chef/delete?id=lasdkgho;asdlgbj ==> QueryParameter
-//{{baseURL}}/chef/delete/:id 
+//{{baseURL}}/chef/delete/:id
 //{{baseURL}}/chef/delete/7
+double divideTwoNumber(num num1, num num2) {
+  if (num2 == 0) {
+    throw InvalidNumberException(message: 'Invalid Number');
+  }
+  var result = num1 / num2;
+  return result;
+}
+
+void test() {
+  try {
+    divideTwoNumber(1, 1); //=>> Done
+    divideTwoNumber(1, 0); //=>> exception
+  } on InvalidNumberException catch(error){
+    print(error.message);
+  }
+  
+}
+class InvalidNumberException implements Exception{
+  final String message;
+
+  InvalidNumberException({required this.message});
+} 
